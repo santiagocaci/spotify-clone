@@ -7,7 +7,7 @@ interface playerState {
   currentIndex: number;
   isActive: boolean;
   isPlaying: boolean;
-  activeSong: {};
+  activeSong: any;
   genreListId: string;
 }
 

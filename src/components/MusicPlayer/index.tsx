@@ -10,7 +10,7 @@ import { Seekbar } from './Seekbar';
 import { Track } from './Track';
 import { VolumeBar } from './VolumenBar';
 
-const MusicPlayer = () => {
+export const MusicPlayer = () => {
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } =
     useAppSelector(state => state.player);
   const [duration, setDuration] = useState(0);
@@ -105,5 +105,3 @@ const MusicPlayer = () => {
     </div>
   );
 };
-
-export default MusicPlayer;
