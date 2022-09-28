@@ -38,7 +38,7 @@ export const Discover = () => {
             song={song}
             index={index}
             data={data}
-            activeSong={activeSong}
+            activeSong={activeSong!}
             isPlaying={isPlaying}
           />
         ))}

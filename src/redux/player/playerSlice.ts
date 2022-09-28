@@ -1,18 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import type { PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from 'redux/store';
+import type { WorldChartResponse } from 'interface';
 
 interface playerState {
   currentSongs: any[];
   currentIndex: number;
   isActive: boolean;
   isPlaying: boolean;
-  activeSong: any;
+  activeSong: WorldChartResponse | undefined;
   genreListId: string;
 }
 
 const initialState: playerState = {
-  activeSong: {},
+  activeSong: undefined,
   currentIndex: 0,
   currentSongs: [],
   genreListId: '',
@@ -24,7 +25,10 @@ export const playerSlice = createSlice({
   name: 'player',
   initialState,
   reducers: {
-    setActiveSong: (state, action) => {
+    setActiveSong: (
+      state,
+      action: PayloadAction<{ song: WorldChartResponse; data: any; i: number }>
+    ) => {
       state.activeSong = action.payload.song;
 
       if (action.payload?.data?.tracks?.hits) {
@@ -61,7 +65,7 @@ export const playerSlice = createSlice({
       state.isActive = true;
     },
 
-    playPause: (state, action) => {
+    playPause: (state, action: PayloadAction<boolean>) => {
       state.isPlaying = action.payload;
     },
 
