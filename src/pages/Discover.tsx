@@ -4,7 +4,7 @@ import { genres } from 'assets';
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
 
 export const Discover = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const { activeSong, isPlaying } = useAppSelector(state => state.player);
 
   const { data, isFetching, error } = useGetTopChartsQuery(undefined);
