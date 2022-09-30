@@ -1,10 +1,9 @@
 import { Error, Loader, SongCard } from 'components';
 import { useGetTopChartsQuery } from 'redux/services';
 import { genres } from 'assets';
-import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { useAppSelector } from 'redux/hooks';
 
 export const Discover = () => {
-  // const dispatch = useAppDispatch();
   const { activeSong, isPlaying } = useAppSelector(state => state.player);
 
   const { data, isFetching, error } = useGetTopChartsQuery(undefined);
