@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { WorldChartResponse, TrackDetailsResponse } from 'interface';
+import type {
+  WorldChartResponse,
+  TrackDetailsResponse,
+  ArtistDetailsResponse,
+} from 'interface';
 
 export const shazamCoreApi = createApi({
   reducerPath: 'shazamCoreApi',
@@ -23,6 +27,9 @@ export const shazamCoreApi = createApi({
     getSongRelated: builder.query<WorldChartResponse[], string>({
       query: songId => `tracks/related?track_id=${songId}`,
     }),
+    getArtistDetails: builder.query<ArtistDetailsResponse, string>({
+      query: artistId => `artists/details?artist_id=${artistId}`,
+    }),
   }),
 });
 
@@ -30,4 +37,5 @@ export const {
   useGetTopChartsQuery,
   useGetSongDetailsQuery,
   useGetSongRelatedQuery,
+  useGetArtistDetailsQuery,
 } = shazamCoreApi;

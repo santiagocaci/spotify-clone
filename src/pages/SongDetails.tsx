@@ -5,6 +5,7 @@ import { DetailsHeader, Error, Loader, RelatedSongs } from 'components';
 
 export const SongDetails = () => {
   const { songId } = useParams();
+  console.log(songId);
   const { data: songData, isFetching: isFetchingSongDetails } =
     useGetSongDetailsQuery(songId!);
   const {
@@ -38,7 +39,7 @@ export const SongDetails = () => {
           )}
         </div>
       </div>
-      <RelatedSongs data={data!} artistId={''} />
+      <RelatedSongs data={data!} />
     </div>
   );
 };

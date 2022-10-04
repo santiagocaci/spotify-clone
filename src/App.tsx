@@ -3,12 +3,12 @@ import { useAppSelector } from 'redux/hooks';
 import { Searchbar, Sidebar, TopPlay } from 'components';
 import {
   AroundYou,
-  ArtistDetails,
   Discover,
   Search,
-  SongDetails,
+  ArtistDetails,
   TopArtists,
   TopCharts,
+  SongDetails,
 } from 'pages';
 import { MusicPlayer } from 'components/MusicPlayer';
 

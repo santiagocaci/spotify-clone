@@ -4,7 +4,7 @@ import type { TrackDetailsResponse } from 'interface';
 
 interface Props {
   artistId: string;
-  songData: TrackDetailsResponse;
+  songData?: TrackDetailsResponse;
   artistData?: any;
 }
 
@@ -23,7 +23,7 @@ export const DetailsHeader: FC<Props> = ({
           src={
             artistId
               ? artist?.artwork?.url.replace('{w}', '500').replace('{h}', '500')
-              : songData.images.coverart
+              : songData?.images.coverart
           }
           alt='art'
           className='w-48 md:w-48 h-48 md:h-28 rounded-full object-cover border-2 shadow-xl shadow-black'

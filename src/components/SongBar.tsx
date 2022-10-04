@@ -1,24 +1,27 @@
 import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import type { WorldChartResponse } from 'interface';
+import type { Song, WorldChartResponse } from 'interface';
 import { Link } from 'react-router-dom';
 import { PlayPause } from './PlayPause';
 import { playPause, setActiveSong } from 'redux/player/playerSlice';
 
 interface Props {
-  song: WorldChartResponse;
-  data: WorldChartResponse[];
+  song?: WorldChartResponse;
+  artistSong?: Song;
+  data: WorldChartResponse[] | Song[];
   i: number;
   artistId?: string;
 }
 
-const SongBar = ({ song, i, artistId = '', data }: Props) => {
+const SongBar = ({ song, artistSong, i, artistId = '', data }: Props) => {
   const dispatch = useAppDispatch();
   const { activeSong, isPlaying } = useAppSelector(state => state.player);
 
   const handlePauseClick = () => dispatch(playPause(false));
   const handlePlayClick = () => {
-    dispatch(setActiveSong({ song, i, data }));
-    dispatch(playPause(true));
+    if (song?.type === 'MUSIC') {
+      dispatch(setActiveSong({ song, i, data }));
+      dispatch(playPause(true));
+    }
   };
 
   return (
@@ -33,7 +36,7 @@ const SongBar = ({ song, i, artistId = '', data }: Props) => {
           className='w-20 h-20 rounded-lg'
           src={
             artistId
-              ? song?.attributes?.artwork?.url
+              ? artistSong?.attributes?.artwork?.url
                   .replace('{w}', '125')
                   .replace('{h}', '125')
               : song?.images?.coverart
@@ -42,16 +45,16 @@ const SongBar = ({ song, i, artistId = '', data }: Props) => {
         />
         <div className='flex-1 flex flex-col justify-center mx-3'>
           {!artistId ? (
-            <Link to={`/songs/${song.key}`}>
+            <Link to={`/songs/${song?.key}`}>
               <p className='text-xl font-bold text-white'>{song?.title}</p>
             </Link>
           ) : (
             <p className='text-xl font-bold text-white'>
-              {song?.attributes?.name}
+              {artistSong?.attributes?.name}
             </p>
           )}
           <p className='text-base text-gray-300 mt-1'>
-            {artistId ? song?.attributes?.albumName : song?.subtitle}
+            {artistId ? artistSong?.attributes?.albumName : song?.subtitle}
           </p>
         </div>
       </div>
@@ -59,7 +62,7 @@ const SongBar = ({ song, i, artistId = '', data }: Props) => {
         <PlayPause
           isPlaying={isPlaying}
           activeSong={activeSong!}
-          song={song}
+          song={song as WorldChartResponse}
           handlePause={handlePauseClick}
           handlePlay={handlePlayClick}
         />
