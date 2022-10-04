@@ -27,7 +27,11 @@ export const playerSlice = createSlice({
   reducers: {
     setActiveSong: (
       state,
-      action: PayloadAction<{ song: WorldChartResponse; data: any; i: number }>
+      action: PayloadAction<{
+        song: WorldChartResponse;
+        data?: any;
+        i: number;
+      }>
     ) => {
       state.activeSong = action.payload.song;
 

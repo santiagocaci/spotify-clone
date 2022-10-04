@@ -84,7 +84,7 @@ export const TopPlay = () => {
       className='ml-0 xl:ml-6 mb-6 xl:mb-0 flex-1 max-w-full xl:max-w-[500px] flex flex-col'
     >
       {/* Top Charts  */}
-      <div className='w-full flex flex-col'>
+      <div className='w-full flex flex-col mt-10 md:mt-0'>
         <div className='flex flex-row justify-between items-center'>
           <h2 className='text-white font-bold text-2xl'>Top Charts</h2>
           <Link to='/top-charts'>

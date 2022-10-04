@@ -4,3 +4,5 @@ export * from './TopPlay';
 export * from './Error';
 export * from './Loader';
 export * from './SongCard';
+export * from './DetailsHeader';
+export * from './RelatedSongs';
