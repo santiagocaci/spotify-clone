@@ -2,13 +2,13 @@ import { Routes, Route } from 'react-router-dom';
 import { useAppSelector } from 'redux/hooks';
 import { Searchbar, Sidebar, TopPlay } from 'components';
 import {
-  AroundYou,
   Discover,
   Search,
   ArtistDetails,
   TopArtists,
   TopCharts,
   SongDetails,
+  AroundYou,
 } from 'pages';
 import { MusicPlayer } from 'components/MusicPlayer';
 
