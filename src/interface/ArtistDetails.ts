@@ -1,6 +1,4 @@
-enum Name {
-  TheBeatles = 'The Beatles',
-}
+type Name = 'The Beatles';
 
 interface Artwork {
   bgColor: string;
@@ -14,34 +12,28 @@ interface Artwork {
   width: number;
 }
 
-enum AudioLocale {
-  EnUS = 'en-US',
-}
+type AudioLocale = 'en-US';
 
-enum AudioTrait {
-  Atmos = 'atmos',
-  HiResLossless = 'hi-res-lossless',
-  Lossless = 'lossless',
-  LossyStereo = 'lossy-stereo',
-  Spatial = 'spatial',
-}
+type AudioTrait =
+  | 'atmos'
+  | 'hi-res-lossless'
+  | 'lossless'
+  | 'lossy-stereo'
+  | 'spatial';
 
-enum ComposerName {
-  BertRussellPhilMedley = 'Bert Russell & Phil Medley',
-  GeorgeHarrison = 'George Harrison',
-  JohnLennonPaulMcCartney = 'John Lennon & Paul McCartney',
-  PaulMcCartneyJohnLennon = 'Paul McCartney & John Lennon',
-}
+type ComposerName =
+  | 'Bert Russell & Phil Medley'
+  | 'George Harrison'
+  | 'John Lennon & Paul McCartney'
+  | 'Paul McCartney & John Lennon';
 
 interface PurpleEditorialNotes {
   short: string;
   standard?: string;
 }
 
-enum Kind {
-  Album = 'album',
-  Song = 'song',
-}
+type Kind = 'album' | 'song';
+
 interface PlayParams {
   id: string;
   kind: Kind;
@@ -50,17 +42,11 @@ interface Preview {
   url: string;
 }
 
-enum RecordLabel {
-  UMCUniversalMusicCatalogue = 'UMC (Universal Music Catalogue)',
-}
+type RecordLabel = 'UMC (Universal Music Catalogue)';
 
 type Type = 'albums' | 'songs';
 
-enum GenreName {
-  Music = 'Music',
-  Pop = 'Pop',
-  Rock = 'Rock',
-}
+type GenreName = 'Music' | 'Pop' | 'Rock';
 
 interface The136975_Attributes {
   artwork: Artwork;
