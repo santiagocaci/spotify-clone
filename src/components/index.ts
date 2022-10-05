@@ -6,3 +6,4 @@ export * from './Loader';
 export * from './SongCard';
 export * from './DetailsHeader';
 export * from './RelatedSongs';
+export * from './ArtistCard';
