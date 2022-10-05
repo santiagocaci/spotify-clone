@@ -1,5 +1,7 @@
 # Spotify Clone App
 
+Pagina https://spotify-clone-sc.netlify.app/
+
 ## Tecnologias
 
 1. React
