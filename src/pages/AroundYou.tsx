@@ -11,7 +11,9 @@ export const AroundYou = () => {
 
   useEffect(() => {
     fetch(
-      'https://geo.ipify.org/api/v2/country?apiKey=at_o6bExu1g6NZVh8w21ToApEHwBxJ2i'
+      `https://geo.ipify.org/api/v2/country?apiKey=${
+        import.meta.env.VITE_GEO_API_KEY
+      }`
     )
       .then(response => response.json())
       .then(data => setCountry(data.location.country))

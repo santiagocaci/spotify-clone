@@ -73,7 +73,7 @@ export const playerSlice = createSlice({
       state.isPlaying = action.payload;
     },
 
-    selectGenreListId: (state, action) => {
+    selectGenreListId: (state, action: PayloadAction<string>) => {
       state.genreListId = action.payload;
     },
   },
